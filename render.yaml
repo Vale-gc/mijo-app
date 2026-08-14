@@ -1,0 +1,29 @@
+services:
+  # Backend: servidor Node/Express que llama a la API de Anthropic
+  - type: web
+    name: mijo-backend
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: PORT
+        value: 3001
+
+  # Frontend: sitio estático compilado con Vite
+  - type: web
+    name: mijo-frontend
+    runtime: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
