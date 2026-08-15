@@ -17,7 +17,6 @@ services:
   - type: web
     name: mijo-frontend
     runtime: static
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
