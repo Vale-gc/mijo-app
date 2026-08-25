@@ -1800,7 +1800,7 @@ const INITIAL_MESSAGES: Message[] = [
 // ─── App ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
-  const [screen,setScreen]=useState<AppScreen>("social");
+  const [screen,setScreen]=useState<AppScreen>("chat");
   const [settings,setSettings]=useState<AppSettings>({theme:"light",brightness:100,voice:"Presentador",fontSize:"A+"});
   const [sidebarOpen,setSidebarOpen]=useState(false);
   const [learningOpen,setLearningOpen]=useState(false);
